@@ -8,20 +8,20 @@ const Banner = () => {
     {
       title: "Explore Rare Artifacts",
       subtitle: "Dive into a world of cultural treasures from ancient civilizations",
-      gradient: "from-slate-900 to-slate-700",
-      accent: "from-blue-500 to-purple-600"
+      gradient: "from-yellow-900 to-yellow-800",
+      accent: "from-yellow-600 to-yellow-500"
     },
     {
       title: "Preserve Digital History",
       subtitle: "Safeguard and manage artifacts using modern digital solutions",
-      gradient: "from-slate-900 to-slate-700",
-      accent: "from-emerald-500 to-teal-600"
+      gradient: "from-yellow-800 to-yellow-900",
+      accent: "from-yellow-500 to-yellow-400"
     },
     {
       title: "Join the Vault",
       subtitle: "Become part of our growing digital archive and showcase your collection",
-      gradient: "from-slate-900 to-slate-700",
-      accent: "from-orange-500 to-red-600"
+      gradient: "from-yellow-900 to-amber-900",
+      accent: "from-amber-600 to-yellow-600"
     }
   ];
 
@@ -85,7 +85,7 @@ const Banner = () => {
             <div className={`absolute inset-0 bg-gradient-to-r ${slides[currentSlide].accent} opacity-10`} />
             
             {/* Content */}
-            <div className="text-center text-white z-10 px-8 max-w-4xl">
+            <div className="text-center text-yellow-100 z-10 px-8 max-w-4xl">
               <motion.h2
                 variants={titleVariants}
                 initial="hidden"
@@ -118,7 +118,7 @@ const Banner = () => {
         {/* Navigation arrows */}
         <motion.button
           onClick={() => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 z-20"
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-yellow-100/20 backdrop-blur-sm rounded-full flex items-center justify-center text-yellow-100 hover:bg-yellow-100/30 transition-all duration-300 z-20"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
@@ -126,7 +126,7 @@ const Banner = () => {
         </motion.button>
         <motion.button
           onClick={() => setCurrentSlide((prev) => (prev + 1) % slides.length)}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300 z-20"
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-yellow-100/20 backdrop-blur-sm rounded-full flex items-center justify-center text-yellow-100 hover:bg-yellow-100/30 transition-all duration-300 z-20"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
@@ -140,7 +140,7 @@ const Banner = () => {
               key={index}
               onClick={() => setCurrentSlide(index)}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                index === currentSlide ? 'bg-white' : 'bg-white/40'
+                index === currentSlide ? 'bg-yellow-100' : 'bg-yellow-100/40'
               }`}
               whileHover={{ scale: 1.2 }}
             />
