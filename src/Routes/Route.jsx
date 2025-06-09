@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import AllArtifacts from "../Pages/AllArtifacts";
 import LogIn from "../Pages/LogIn";
 import Register from "../Pages/Register";
+import AddArtifacts from "../Pages/AddArtifacts";
 
 export const router = createBrowserRouter([
     {
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([
             {
                 path: "register",
                 Component: Register,
+            },
+            {
+                path: "add-artifact",
+                Component: AddArtifacts
             }
 
         ]

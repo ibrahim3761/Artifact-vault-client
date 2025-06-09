@@ -17,7 +17,7 @@ const LogIn = () => {
 
     logIn(email, password)
       .then(() => {
-        toast.success("Logged in!");
+        toast.success("Logged in successful!");
         navigate(from);
       })
       .catch(() => {
