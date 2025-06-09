@@ -1,14 +1,15 @@
-import React from "react";
+import React, { use } from "react";
 import { Link, NavLink } from "react-router";
 import userIcon from "../assets/user.png";
+import { AuthContext } from "../Provider/AuthProvider";
 
-// TEMP user logic — replace with context later
-const user = null;
-const logOut = () => console.log("Logged out");
 
 const Navbar = () => {
+  const {user,logOut} = use(AuthContext)
   const handleLogOut = () => {
-    logOut();
+    logOut()
+      .then(() => console.log("Logged out"))
+      .catch((err) => console.error(err));
   };
 
   const navLinks = (
