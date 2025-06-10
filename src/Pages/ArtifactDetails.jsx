@@ -1,17 +1,44 @@
-import React, { useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router';
 import axios from 'axios';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const ArtifactDetails = () => {
   const artifact = useLoaderData();
   const [likeCount, setLikeCount] = useState(artifact.likeCount || 0);
-  const [liked, setLiked] = useState(false); // Track toggle state
+  const [liked, setLiked] = useState(false);
+  const { user } = use(AuthContext);
+
+  useEffect(() => {
+    const checkIfLiked = async () => {
+      if (!user?.email) return;
+
+      try {
+        const response = await axios.get(
+          `http://localhost:3000/artifacts/liked/${artifact._id}`,
+          { params: { userEmail: user.email } }
+        );
+        setLiked(response.data.liked);
+      } catch (err) {
+        console.error('Failed to check like status', err);
+      }
+    };
+
+    checkIfLiked();
+  }, [artifact._id, user]);
 
   const handleLikeToggle = async () => {
+    if (!user?.email) {
+      alert("You must be logged in to like an artifact.");
+      return;
+    }
+
     const increment = liked ? -1 : 1;
+
     try {
       await axios.patch(`http://localhost:3000/artifacts/like/${artifact._id}`, {
-        increment
+        increment,
+        userEmail: user.email
       });
       setLikeCount(prev => prev + increment);
       setLiked(!liked);
@@ -21,9 +48,9 @@ const ArtifactDetails = () => {
   };
 
   return (
-     <div className="max-w-3xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+    <div className="max-w-3xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
       <h2 className="text-3xl font-bold mb-4">{artifact.name}</h2>
-      
+
       {artifact.image && (
         <img
           src={artifact.image}
@@ -50,7 +77,7 @@ const ArtifactDetails = () => {
             liked ? 'bg-red-600' : 'bg-gray-500'
           }`}
         >
-          {liked ? '♥ Liked' : '♡ Like'}
+          {liked ? 'Dislike' : 'Like'}
         </button>
         <span className="text-lg font-medium">Likes: {likeCount}</span>
       </div>
