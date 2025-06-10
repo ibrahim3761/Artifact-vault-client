@@ -19,7 +19,7 @@ const AllArtifacts = () => {
             <p className="text-sm"><strong>Context:</strong> {artifact.context}</p>
             <div className="mt-4">
               <Link
-                to={`/artifacts/${artifact._id}`}
+                to={`/artifacts-details/${artifact._id}`}
                 className="inline-block bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition"
               >
                 View Detail
