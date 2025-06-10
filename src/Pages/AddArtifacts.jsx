@@ -2,7 +2,6 @@ import React from "react";
 import { use } from "react";
 import axios from "axios";
 import { AuthContext } from "../Provider/AuthProvider";
-import { toast, Bounce } from "react-toastify";
 import Swal from "sweetalert2";
 
 const AddArtifact = () => {
