@@ -10,10 +10,7 @@ const Home = () => {
       <Banner></Banner>
 
       {/* === Featured Artifacts === */}
-      <section className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-yellow-900 mb-4">
-          Featured Artifacts
-        </h2>
+      <section className="px-6">
         <div>
           <FeaturedArtifacts></FeaturedArtifacts>
         </div>

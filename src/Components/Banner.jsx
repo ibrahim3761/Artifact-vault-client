@@ -69,7 +69,7 @@ const Banner = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      className="max-w-6xl mx-auto px-4 mt-6"
+      className="px-6 mt-6"
     >
       <div className="relative h-80 rounded-2xl overflow-hidden shadow-xl">
         <AnimatePresence mode="wait">

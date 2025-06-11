@@ -89,7 +89,7 @@ const MyArtifacts = () => {
   if (myArtifacts.length === 0) {
     return (
       <div className="text-center text-gray-600 py-10">
-        <h2 className="text-xl font-semibold">No artifacts found 😢</h2>
+        <h2 className="text-xl font-semibold">No artifacts found </h2>
         <p>You haven’t added any artifacts yet.</p>
       </div>
     );
