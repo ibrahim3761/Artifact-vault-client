@@ -2,6 +2,7 @@ import React, { use, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router';
 import axios from 'axios';
 import { AuthContext } from '../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const ArtifactDetails = () => {
   const artifact = useLoaderData();
@@ -42,13 +43,22 @@ const ArtifactDetails = () => {
       });
       setLikeCount(prev => prev + increment);
       setLiked(!liked);
+      Swal.fire({
+        icon: liked ? 'info' : 'success',
+        title: liked ? 'Artifact disliked' : 'Artifact liked',
+        text: liked
+          ? 'You removed this artifact from your liked list.'
+          : 'You liked this artifact!',
+        timer: 2000,
+        showConfirmButton: false,
+      });
     } catch (error) {
       console.error('Failed to update like count', error);
     }
   };
 
   return (
-    <div className="max-w-3xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+    <div className="max-w-3xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-md border border-amber-200">
       <h2 className="text-3xl font-bold mb-4">{artifact.name}</h2>
 
       {artifact.image && (
@@ -59,7 +69,7 @@ const ArtifactDetails = () => {
         />
       )}
 
-      <div className="space-y-2 text-gray-700">
+      <div className="space-y-2 text-gray-700 ">
         <p><strong>Type:</strong> {artifact.type}</p>
         <p><strong>Context:</strong> {artifact.context}</p>
         <p><strong>Description:</strong> {artifact.description}</p>
