@@ -142,88 +142,130 @@ const MyArtifacts = () => {
             <h2 className="text-xl font-bold mb-4 text-amber-700">
               Update Artifact
             </h2>
-            <form onSubmit={handleUpdate} className="space-y-3">
-              <input
-                type="text"
-                name="name"
-                defaultValue={selectedArtifact.name}
-                required
-                className="w-full p-2 border rounded"
-                placeholder="Name"
-              />
-              <input
-                type="text"
-                name="image"
-                defaultValue={selectedArtifact.image}
-                required
-                className="w-full p-2 border rounded"
-                placeholder="Image URL"
-              />
-              <input
-                type="text"
-                name="type"
-                defaultValue={selectedArtifact.type}
-                required
-                className="w-full p-2 border rounded"
-                placeholder="Type"
-              />
-              <input
-                type="text"
-                name="context"
-                defaultValue={selectedArtifact.context}
-                className="w-full p-2 border rounded"
-                placeholder="Historical Context"
-              />
-              <textarea
-                name="description"
-                defaultValue={selectedArtifact.description}
-                required
-                rows="3"
-                className="w-full p-2 border rounded"
-                placeholder="Description"
-              ></textarea>
-              <input
-                type="text"
-                name="createdAt"
-                defaultValue={selectedArtifact.createdAt}
-                className="w-full p-2 border rounded"
-                placeholder="Created At"
-              />
-              <input
-                type="text"
-                name="discoveredAt"
-                defaultValue={selectedArtifact.discoveredAt}
-                className="w-full p-2 border rounded"
-                placeholder="Discovered At"
-              />
-              <input
-                type="text"
-                name="discoveredBy"
-                defaultValue={selectedArtifact.discoveredBy}
-                className="w-full p-2 border rounded"
-                placeholder="Discovered By"
-              />
-              <input
-                type="text"
-                name="location"
-                defaultValue={selectedArtifact.location}
-                className="w-full p-2 border rounded"
-                placeholder="Location"
-              />
+            <form
+              onSubmit={handleUpdate}
+              className="space-y-4 text-sm text-amber-900"
+            >
+              <div className="flex flex-col">
+                <label className="mb-1">Artifact Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  defaultValue={selectedArtifact.name}
+                  required
+                  className="p-2 border rounded"
+                  placeholder="Name"
+                />
+              </div>
 
-              <div className="text-sm text-gray-500">
+              <div className="flex flex-col">
+                <label className="mb-1">Image URL</label>
+                <input
+                  type="text"
+                  name="image"
+                  defaultValue={selectedArtifact.image}
+                  required
+                  className="p-2 border rounded"
+                  placeholder="Image URL"
+                />
+              </div>
+
+              <div className="flex flex-col">
+                <label className="mb-1">Artifact Type</label>
+                <select
+                  name="type"
+                  defaultValue={selectedArtifact.type}
+                  required
+                  className="p-2 border rounded"
+                >
+                  <option value="">Select type</option>
+                  <option value="Tools">Tools</option>
+                  <option value="Weapons">Weapons</option>
+                  <option value="Documents">Documents</option>
+                  <option value="Writings">Writings</option>
+                </select>
+              </div>
+
+              <div className="flex flex-col">
+                <label className="mb-1">Historical Context</label>
+                <input
+                  type="text"
+                  name="context"
+                  defaultValue={selectedArtifact.context}
+                  className="p-2 border rounded"
+                  placeholder="Historical Context"
+                />
+              </div>
+
+              <div className="flex flex-col">
+                <label className="mb-1">Description</label>
+                <textarea
+                  name="description"
+                  defaultValue={selectedArtifact.description}
+                  required
+                  rows="3"
+                  className="p-2 border rounded"
+                  placeholder="Description"
+                ></textarea>
+              </div>
+
+              <div className="flex flex-col">
+                <label className="mb-1">Created At</label>
+                <input
+                  type="text"
+                  name="createdAt"
+                  defaultValue={selectedArtifact.createdAt}
+                  className="p-2 border rounded"
+                  placeholder="Created At"
+                />
+              </div>
+
+              <div className="flex flex-col">
+                <label className="mb-1">Discovered At</label>
+                <input
+                  type="text"
+                  name="discoveredAt"
+                  defaultValue={selectedArtifact.discoveredAt}
+                  className="p-2 border rounded"
+                  placeholder="Discovered At"
+                />
+              </div>
+
+              <div className="flex flex-col">
+                <label className="mb-1">Discovered By</label>
+                <input
+                  type="text"
+                  name="discoveredBy"
+                  defaultValue={selectedArtifact.discoveredBy}
+                  className="p-2 border rounded"
+                  placeholder="Discovered By"
+                />
+              </div>
+
+              <div className="flex flex-col">
+                <label className="mb-1">Location</label>
+                <input
+                  type="text"
+                  name="location"
+                  defaultValue={selectedArtifact.location}
+                  className="p-2 border rounded"
+                  placeholder="Location"
+                />
+              </div>
+
+              <div className="text-sm text-gray-600 space-y-1">
                 <p>
                   <strong>Created By:</strong> {selectedArtifact.userName}
                 </p>
                 <p>
                   <strong>Email:</strong> {selectedArtifact.userEmail}
                 </p>
-                <p className="mb-4 text-gray-600">
+                <p>
                   <strong>Like Count:</strong> {selectedArtifact.likeCount}
                 </p>
               </div>
 
-              <div className="flex justify-between mt-4">
+              <div className="flex justify-between pt-4">
                 <button
                   type="submit"
                   className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
