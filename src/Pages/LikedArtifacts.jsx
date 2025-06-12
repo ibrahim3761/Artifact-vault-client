@@ -12,16 +12,11 @@ const LikedArtifacts = () => {
     const fetchLikedArtifacts = async () => {
       if (!user?.email) return;
 
-      try {
-        const res = await axios.get("http://localhost:3000/artifacts", {
-          params: { likedBy: user.email },
-        });
-        setLikedArtifacts(res.data);
-      } catch (error) {
-        console.error("Failed to fetch liked artifacts:", error);
-      } finally {
-        setLoading(false);
-      }
+      const res = await axios.get("http://localhost:3000/artifacts", {
+        params: { likedBy: user.email },
+      });
+      setLikedArtifacts(res.data);
+      setLoading(false);
     };
 
     fetchLikedArtifacts();

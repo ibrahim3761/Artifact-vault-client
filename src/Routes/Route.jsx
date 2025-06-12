@@ -9,11 +9,13 @@ import MyArtifacts from "../Pages/MyArtifacts";
 import LikedArtifacts from "../Pages/LikedArtifacts";
 import ArtifactDetails from "../Pages/ArtifactDetails";
 import PrivateRoute from "../Provider/PrivateRoute";
+import Error from "../Pages/Error";
 
 export const router = createBrowserRouter([
     {
         path: "/",
         Component: HomeLayouts,
+        errorElement: <Error></Error>,
         children:[
             {
                 index: true,
