@@ -13,16 +13,12 @@ const AllArtifacts = () => {
   }, [search]);
 
   const fetchArtifacts = async () => {
-    try {
-      const response = await axios.get("http://localhost:3000/artifacts", {
-        params: {
-          search: search.trim() || undefined,
-        },
-      });
-      setArtifacts(response.data);
-    } catch (err) {
-      console.error("Error fetching artifacts:", err);
-    }
+    const response = await axios.get("http://localhost:3000/artifacts", {
+      params: {
+        search: search.trim() || undefined,
+      },
+    });
+    setArtifacts(response.data);
   };
 
   if (loading) {
