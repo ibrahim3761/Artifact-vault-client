@@ -69,7 +69,7 @@ const FeaturedArtifacts = () => {
               Likes: {artifact.likeCount}
             </p>
             <Link
-              to={`/artifact/${artifact._id}`}
+              to={`/artifacts-details/${artifact._id}`}
               className="inline-block text-amber-600 hover:underline font-medium"
             >
               View Details →

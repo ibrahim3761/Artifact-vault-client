@@ -7,16 +7,17 @@ const AllArtifacts = () => {
   const { loading } = use(AuthContext);
   const [artifacts, setArtifacts] = useState([]);
   const [search, setSearch] = useState("");
-
   useEffect(() => {
-    fetchArtifacts();
+   
+      fetchArtifacts();
+    
   }, [search]);
 
   const fetchArtifacts = async () => {
     const response = await axios.get("http://localhost:3000/artifacts", {
       params: {
         search: search.trim() || undefined,
-      },
+      }
     });
     setArtifacts(response.data);
   };

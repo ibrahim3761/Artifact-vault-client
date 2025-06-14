@@ -17,7 +17,7 @@ const ArtifactDetails = () => {
       try {
         const response = await axios.get(
           `http://localhost:3000/artifacts/liked/${artifact._id}`,
-          { params: { userEmail: user.email } }
+          { params: { userEmail: user.email }, headers: { authorization: `Bearer ${user.accessToken}`} }
         );
         setLiked(response.data.liked);
       } catch (err) {
@@ -28,20 +28,23 @@ const ArtifactDetails = () => {
     checkIfLiked();
   }, [artifact._id, user]);
 
-  const handleLikeToggle = () => {
-    if (!user?.email) {
-      alert("You must be logged in to like an artifact.");
-      return;
-    }
+ const handleLikeToggle = async () => {
+  if (!user?.email) {
+    alert("You must be logged in to like an artifact.");
+    return;
+  }
 
-    const increment = liked ? -1 : 1;
+  const increment = liked ? -1 : 1;
 
-    axios.patch(`http://localhost:3000/artifacts/like/${artifact._id}`, {
+  try {
+    await axios.patch(`http://localhost:3000/artifacts/like/${artifact._id}`, {
       increment,
       userEmail: user.email,
     });
+
     setLikeCount((prev) => prev + increment);
     setLiked(!liked);
+
     Swal.fire({
       icon: liked ? "info" : "success",
       title: liked ? "Artifact disliked" : "Artifact liked",
@@ -51,7 +54,12 @@ const ArtifactDetails = () => {
       timer: 2000,
       showConfirmButton: false,
     });
-  };
+  } catch (err) {
+    console.error("Failed to toggle like", err);
+    Swal.fire("Error", "Something went wrong.", "error");
+  }
+};
+
 
   return (
     <div className="max-w-3xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-md border border-amber-200">

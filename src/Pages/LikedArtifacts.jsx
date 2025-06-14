@@ -18,7 +18,7 @@ const LikedArtifacts = () => {
         params: { likedBy: user.email },
         headers: {
           authorization: `Bearer ${idToken}`,
-        },
+        }
       });
       setLikedArtifacts(res.data);
       setLoading(false);

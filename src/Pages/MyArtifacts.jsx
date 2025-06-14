@@ -14,7 +14,7 @@ const MyArtifacts = () => {
     const fetchArtifacts = async () => {
       if (user?.email) {
         try {
-          const res = await myArtifactsPromise(user.email);
+          const res = await myArtifactsPromise(user.email,user.accessToken);
           setMyArtifacts(res);
         } catch (error) {
           console.error("Error fetching artifacts:", error);
