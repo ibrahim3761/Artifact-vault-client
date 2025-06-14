@@ -11,9 +11,14 @@ const LikedArtifacts = () => {
   useEffect(() => {
     const fetchLikedArtifacts = async () => {
       if (!user?.email) return;
+      const idToken = await user.getIdToken();
+      console.log(idToken);
 
       const res = await axios.get("http://localhost:3000/artifacts", {
         params: { likedBy: user.email },
+        headers: {
+          authorization: `Bearer ${idToken}`,
+        },
       });
       setLikedArtifacts(res.data);
       setLoading(false);
@@ -24,10 +29,10 @@ const LikedArtifacts = () => {
 
   if (loading) {
     return (
-      <div className="felx justify-center text-center py-10" role="status">
+      <div className="flex justify-center text-center py-10" role="status">
         <svg
           aria-hidden="true"
-          class="inline w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-purple-600"
+          className="inline w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-purple-600"
           viewBox="0 0 100 101"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +46,7 @@ const LikedArtifacts = () => {
             fill="currentFill"
           />
         </svg>
-        <span class="sr-only">Loading...</span>
+        <span className="sr-only">Loading...</span>
       </div>
     );
   }
