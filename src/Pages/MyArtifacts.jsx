@@ -37,7 +37,7 @@ const MyArtifacts = () => {
       confirmButtonText: "Delete",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:3000/artifacts/${id}`).then((res) => {
+        axios.delete(`https://artifact-vault-server.vercel.app/artifacts/${id}`).then((res) => {
           if (res.data.deletedCount > 0) {
             setMyArtifacts((prev) =>
               prev.filter((artifact) => artifact._id !== id)
@@ -56,7 +56,7 @@ const MyArtifacts = () => {
 
     axios
       .put(
-        `http://localhost:3000/artifacts/${selectedArtifact._id}`,
+        `https://artifact-vault-server.vercel.app/artifacts/${selectedArtifact._id}`,
         updatedData
       )
       .then((res) => {

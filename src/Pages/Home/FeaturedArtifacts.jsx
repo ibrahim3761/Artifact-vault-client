@@ -9,7 +9,7 @@ const FeaturedArtifacts = () => {
   useEffect(() => {
     const fetchTopArtifacts = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/artifacts/featured");
+        const res = await axios.get("https://artifact-vault-server.vercel.app/artifacts/featured");
         setArtifacts(res.data);
       } catch (error) {
         console.error("Error fetching featured artifacts:", error);

@@ -14,7 +14,7 @@ const AddArtifact = () => {
   artifact.likeCount = 0;
 
   axios
-    .post("http://localhost:3000/artifacts", artifact)
+    .post("https://artifact-vault-server.vercel.app/artifacts", artifact)
     .then((res) => {
       if (res.data.insertedId) {
         Swal.fire({

@@ -16,7 +16,7 @@ const ArtifactDetails = () => {
 
       try {
         const response = await axios.get(
-          `http://localhost:3000/artifacts/liked/${artifact._id}`,
+          `https://artifact-vault-server.vercel.app/artifacts/liked/${artifact._id}`,
           { params: { userEmail: user.email }, headers: { authorization: `Bearer ${user.accessToken}`} }
         );
         setLiked(response.data.liked);
@@ -37,9 +37,10 @@ const ArtifactDetails = () => {
   const increment = liked ? -1 : 1;
 
   try {
-    await axios.patch(`http://localhost:3000/artifacts/like/${artifact._id}`, {
+    await axios.patch(`https://artifact-vault-server.vercel.app/artifacts/like/${artifact._id}`, {
       increment,
       userEmail: user.email,
+      
     });
 
     setLikeCount((prev) => prev + increment);

@@ -14,7 +14,7 @@ const LikedArtifacts = () => {
       const idToken = await user.getIdToken();
       console.log(idToken);
 
-      const res = await axios.get("http://localhost:3000/artifacts", {
+      const res = await axios.get("https://artifact-vault-server.vercel.app/artifacts", {
         params: { likedBy: user.email },
         headers: {
           authorization: `Bearer ${idToken}`,

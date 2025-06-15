@@ -14,7 +14,7 @@ const AllArtifacts = () => {
   }, [search]);
 
   const fetchArtifacts = async () => {
-    const response = await axios.get("http://localhost:3000/artifacts", {
+    const response = await axios.get("https://artifact-vault-server.vercel.app/artifacts", {
       params: {
         search: search.trim() || undefined,
       }
