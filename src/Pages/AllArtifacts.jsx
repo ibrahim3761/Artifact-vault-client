@@ -13,14 +13,22 @@ const AllArtifacts = () => {
     
   }, [search]);
 
-  const fetchArtifacts = async () => {
-    const response = await axios.get("https://artifact-vault-server.vercel.app/artifacts", {
+  const fetchArtifacts = () => {
+  axios
+    .get("https://artifact-vault-server.vercel.app/artifacts", {
       params: {
         search: search.trim() || undefined,
-      }
+      },
+    })
+    .then((res) => {
+      setArtifacts(res.data);
+    })
+    .catch((error) => {
+      console.error("Failed to fetch artifacts:", error);
+
     });
-    setArtifacts(response.data);
-  };
+};
+
 
   if (loading) {
     return (

@@ -36,7 +36,7 @@ const Register = () => {
         updateUser({ displayName: name, photoURL: photo })
           .then(() => {
             setUser({ ...user, displayName: name, photoURL: photo });
-            navigate(location.state?.from?.pathname || "/");
+            navigate(`${location.state ? location.state : "/"}`);
             toast.success("Registration successful!", {
               position: "top-right",
               autoClose: 3000,
@@ -67,7 +67,7 @@ const Register = () => {
   const handleGoogleLogin = () => {
     googleLogin()
       .then(() => {
-        navigate(location.state?.from?.pathname || "/");
+        navigate(`${location.state ? location.state : "/"}`);
         toast.success("Google login successful!", {
           position: "top-right",
           autoClose: 3000,

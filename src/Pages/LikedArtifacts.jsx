@@ -8,24 +8,29 @@ const LikedArtifacts = () => {
   const [likedArtifacts, setLikedArtifacts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchLikedArtifacts = async () => {
-      if (!user?.email) return;
-      const idToken = await user.getIdToken();
-      console.log(idToken);
+ useEffect(() => {
+  const fetchLikedArtifacts = () => {
+    if (!user?.email) return;
 
-      const res = await axios.get("https://artifact-vault-server.vercel.app/artifacts", {
+    axios
+      .get("https://artifact-vault-server.vercel.app/artifacts", {
         params: { likedBy: user.email },
         headers: {
-          authorization: `Bearer ${idToken}`,
-        }
-      });
-      setLikedArtifacts(res.data);
-      setLoading(false);
-    };
+          authorization: `Bearer ${user.accessToken}`,
+        },
+      })
+      .then((res) => {
+        setLikedArtifacts(res.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching liked artifacts:", error);
+      })
 
-    fetchLikedArtifacts();
-  }, [user?.email]);
+  };
+
+  fetchLikedArtifacts();
+}, [user?.email]);
 
   if (loading) {
     return (

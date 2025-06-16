@@ -11,10 +11,10 @@ const ArtifactDetails = () => {
   const { user } = use(AuthContext);
 
   useEffect(() => {
-  if (artifact?.name) {
-    document.title = `ArtifactVault - ${artifact.name}`;
-  }
-}, [artifact.name]);
+    if (artifact?.name) {
+      document.title = `ArtifactVault - ${artifact.name}`;
+    }
+  }, [artifact.name]);
 
   useEffect(() => {
     const checkIfLiked = async () => {
@@ -23,7 +23,10 @@ const ArtifactDetails = () => {
       try {
         const response = await axios.get(
           `https://artifact-vault-server.vercel.app/artifacts/liked/${artifact._id}`,
-          { params: { userEmail: user.email }, headers: { authorization: `Bearer ${user.accessToken}`} }
+          {
+            params: { userEmail: user.email },
+            headers: { authorization: `Bearer ${user.accessToken}` },
+          }
         );
         setLiked(response.data.liked);
       } catch (err) {
@@ -34,37 +37,43 @@ const ArtifactDetails = () => {
     checkIfLiked();
   }, [artifact._id, user]);
 
- const handleLikeToggle = async () => {
-  if (!user?.email) {
-    alert("You must be logged in to like an artifact.");
-    return;
-  }
-
+  const handleLikeToggle = () => {
   const increment = liked ? -1 : 1;
 
-  try {
-    await axios.patch(`https://artifact-vault-server.vercel.app/artifacts/like/${artifact._id}`, {
-      increment,
-      userEmail: user.email,
-      
-    });
+  axios
+    .patch(
+      `https://artifact-vault-server.vercel.app/artifacts/like/${artifact._id}`,
+      {
+        increment,
+        userEmail: user.email,
+      }
+    )
+    .then((res) => {
+      setLikeCount((prev) => prev + increment);
+      setLiked(!liked);
 
-    setLikeCount((prev) => prev + increment);
-    setLiked(!liked);
+      Swal.fire({
+        icon: liked ? "info" : "success",
+        title: liked ? "Artifact disliked" : "Artifact liked",
+        text: liked
+          ? "You removed this artifact from your liked list."
+          : "You liked this artifact!",
+        timer: 2000,
+        showConfirmButton: false,
+      });
 
-    Swal.fire({
-      icon: liked ? "info" : "success",
-      title: liked ? "Artifact disliked" : "Artifact liked",
-      text: liked
-        ? "You removed this artifact from your liked list."
-        : "You liked this artifact!",
-      timer: 2000,
-      showConfirmButton: false,
+      console.log("Like status updated:", res.data);
+    })
+    .catch((error) => {
+      console.error("Error updating like status:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Something went wrong!",
+        text: "Failed to update like status. Please try again.",
+        timer: 2000,
+        showConfirmButton: false,
+      });
     });
-  } catch (err) {
-    console.error("Failed to toggle like", err);
-    Swal.fire("Error", "Something went wrong.", "error");
-  }
 };
 
 

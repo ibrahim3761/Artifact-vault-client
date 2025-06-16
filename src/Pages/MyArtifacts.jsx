@@ -11,16 +11,16 @@ const MyArtifacts = () => {
   const [selectedArtifact, setSelectedArtifact] = useState(null);
 
   useEffect(() => {
-    const fetchArtifacts = async () => {
+    const fetchArtifacts = () => {
       if (user?.email) {
-        try {
-          const res = await myArtifactsPromise(user.email,user.accessToken);
-          setMyArtifacts(res);
-        } catch (error) {
-          console.error("Error fetching artifacts:", error);
-        } finally {
-          setLoading(false);
-        }
+        myArtifactsPromise(user.email, user.accessToken)
+          .then((res) => {
+            setMyArtifacts(res);
+            setLoading(false);
+          })
+          .catch((error) => {
+            console.error("Error fetching artifacts:", error);
+          });
       }
     };
     fetchArtifacts();
@@ -37,14 +37,16 @@ const MyArtifacts = () => {
       confirmButtonText: "Delete",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`https://artifact-vault-server.vercel.app/artifacts/${id}`).then((res) => {
-          if (res.data.deletedCount > 0) {
-            setMyArtifacts((prev) =>
-              prev.filter((artifact) => artifact._id !== id)
-            );
-            Swal.fire("Deleted!", "Artifact has been deleted.", "success");
-          }
-        });
+        axios
+          .delete(`https://artifact-vault-server.vercel.app/artifacts/${id}`)
+          .then((res) => {
+            if (res.data.deletedCount > 0) {
+              setMyArtifacts((prev) =>
+                prev.filter((artifact) => artifact._id !== id)
+              );
+              Swal.fire("Deleted!", "Artifact has been deleted.", "success");
+            }
+          });
       }
     });
   };

@@ -8,7 +8,6 @@ const LogIn = () => {
   const { logIn, googleLogin } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -18,7 +17,7 @@ const LogIn = () => {
     logIn(email, password)
       .then(() => {
         toast.success("Logged in successful!");
-        navigate(from);
+        navigate(`${location.state ? location.state : "/"}`);
       })
       .catch(() => {
         toast.error("Wrong email or password.");
@@ -29,7 +28,7 @@ const LogIn = () => {
     googleLogin()
       .then(() => {
         toast.success("Google login successful!");
-        navigate(from);
+        navigate(`${location.state ? location.state : "/"}`);
       })
       .catch(() => {
         toast.error("Google login failed.");
