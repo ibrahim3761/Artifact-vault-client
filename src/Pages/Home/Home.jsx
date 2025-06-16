@@ -6,6 +6,7 @@ import FeaturedArtifacts from "./FeaturedArtifacts";
 const Home = () => {
   return (
     <div className="space-y-16">
+      <title>ArtifactVault - Home</title>
       {/* === Banner === */}
       <Banner></Banner>
 

@@ -11,6 +11,12 @@ const ArtifactDetails = () => {
   const { user } = use(AuthContext);
 
   useEffect(() => {
+  if (artifact?.name) {
+    document.title = `ArtifactVault - ${artifact.name}`;
+  }
+}, [artifact.name]);
+
+  useEffect(() => {
     const checkIfLiked = async () => {
       if (!user?.email) return;
 

@@ -87,6 +87,7 @@ const Register = () => {
 
   return (
     <div className="flex justify-center items-center py-10 bg-amber-50 px-4 rounded-2xl">
+      <title>ArtifactVault - Register</title>
       <div className="bg-white text-gray-900 rounded-2xl shadow-lg p-8 w-full max-w-md">
         <h2 className="text-3xl font-bold mb-6 text-center text-amber-800">
           Register

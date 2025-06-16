@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 const Error = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-amber-50 text-center px-4 relative">
+      <title>ArtifactVault - 404 Not Found</title>
       {/* Simple background accent */}
       <div className="absolute inset-0 bg-gradient-to-br from-amber-100 to-orange-100"></div>
       

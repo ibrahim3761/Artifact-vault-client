@@ -14,7 +14,11 @@ const AddArtifact = () => {
   artifact.likeCount = 0;
 
   axios
-    .post("https://artifact-vault-server.vercel.app/artifacts", artifact)
+    .post("https://artifact-vault-server.vercel.app/artifacts", artifact,{
+      headers: {
+        authorization: `Bearer ${user?.accessToken}`,
+      },
+    })
     .then((res) => {
       if (res.data.insertedId) {
         Swal.fire({
@@ -38,6 +42,7 @@ const AddArtifact = () => {
 
   return (
     <div className="md:px-10 md:py-14 px-5 py-5 bg-amber-50 min-h-screen">
+      <title>ArtifactVault - Add Artifact</title>
       <div className="bg-white p-10 rounded-xl shadow-lg text-gray-800 max-w-4xl mx-auto">
         <h2 className="text-3xl font-bold text-center text-amber-800 mb-4">
           Add New Artifact

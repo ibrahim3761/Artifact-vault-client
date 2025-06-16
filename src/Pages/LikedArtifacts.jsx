@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Link } from "react-router";
 
 const LikedArtifacts = () => {
-  const { user } = useContext(AuthContext);
+  const { user } = use(AuthContext);
   const [likedArtifacts, setLikedArtifacts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -54,6 +54,7 @@ const LikedArtifacts = () => {
   if (likedArtifacts.length === 0) {
     return (
       <div className=" flex flex-col gap-2 text-center mt-10 text-lg font-semibold text-amber-600 border border-amber-200 p-6 rounded-lg">
+        <title>ArtifactVault - Liked Artifacts</title>
         <div>
           <h1>You haven't liked any artifacts yet.</h1>
         </div>
@@ -71,6 +72,7 @@ const LikedArtifacts = () => {
 
   return (
     <div className="p-6">
+        <title>ArtifactVault - Liked Artifacts</title>
       <h2 className="text-3xl font-bold mb-6 text-center">
         Your Liked Artifacts
       </h2>

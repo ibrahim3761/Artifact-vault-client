@@ -38,6 +38,7 @@ const LogIn = () => {
 
   return (
     <div className="min-h-screen flex justify-center items-center bg-amber-50 p-4">
+      <title>ArtifactVault - Login</title>
       <div className="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
         <h2 className="text-2xl font-bold text-center text-amber-800 mb-6">
           Login

@@ -113,6 +113,7 @@ const MyArtifacts = () => {
 
   return (
     <div className="px-6 py-10">
+      <title>ArtifactVault - My Artifacts</title>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {myArtifacts.map((artifact) => (
           <div

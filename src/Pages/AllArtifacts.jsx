@@ -48,6 +48,7 @@ const AllArtifacts = () => {
 
   return (
     <div className="px-6 py-10">
+      <title>ArtifactVault - All Artifacts</title>
       {/* Search input */}
       <div className="mb-6 text-center">
         <input
