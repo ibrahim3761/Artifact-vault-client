@@ -3,10 +3,11 @@ import { use } from "react";
 import axios from "axios";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router";
 
 const AddArtifact = () => {
   const { user } = use(AuthContext);
-
+  const navigate = useNavigate();
   const handleAddArtifact = (e) => {
   e.preventDefault();
   const form = e.target;
@@ -29,6 +30,7 @@ const AddArtifact = () => {
           timer: 1500,
         });
         form.reset();
+        navigate("/my-artifacts");
       }
     })
     .catch((error) => {

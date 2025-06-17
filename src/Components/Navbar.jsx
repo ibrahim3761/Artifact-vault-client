@@ -3,9 +3,8 @@ import { Link, NavLink } from "react-router";
 import userIcon from "../assets/user.png";
 import { AuthContext } from "../Provider/AuthProvider";
 
-
 const Navbar = () => {
-  const {user,logOut} = use(AuthContext)
+  const { user, logOut } = use(AuthContext);
   const handleLogOut = () => {
     logOut()
       .then(() => console.log("Logged out"))
@@ -38,20 +37,18 @@ const Navbar = () => {
           All Artifacts
         </NavLink>
       </li>
-      {user && (
-        <li>
-          <NavLink
-            to="/add-artifact"
-            className={({ isActive }) =>
-              isActive
-                ? "text-yellow-900 font-semibold border-b-2 border-yellow-900 pb-1"
-                : "text-gray-700 hover:text-yellow-800 pb-1"
-            }
-          >
-            Add Artifact
-          </NavLink>
-        </li>
-      )}
+      <li>
+        <NavLink
+          to="/add-artifact"
+          className={({ isActive }) =>
+            isActive
+              ? "text-yellow-900 font-semibold border-b-2 border-yellow-900 pb-1"
+              : "text-gray-700 hover:text-yellow-800 pb-1"
+          }
+        >
+          Add Artifact
+        </NavLink>
+      </li>
     </>
   );
 
@@ -69,7 +66,12 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             </svg>
           </div>
           <ul
@@ -81,19 +83,28 @@ const Navbar = () => {
             {!user ? (
               <>
                 <li>
-                  <Link to="/login" className="btn bg-yellow-800 text-white text-center">
+                  <Link
+                    to="/login"
+                    className="btn bg-yellow-800 text-white text-center"
+                  >
                     Login
                   </Link>
                 </li>
                 <li>
-                  <Link to="/register" className="btn bg-yellow-800 text-white text-center">
+                  <Link
+                    to="/register"
+                    className="btn bg-yellow-800 text-white text-center"
+                  >
                     Register
                   </Link>
                 </li>
               </>
             ) : (
               <li>
-                <button onClick={handleLogOut} className="btn bg-yellow-800 text-white text-center">
+                <button
+                  onClick={handleLogOut}
+                  className="btn bg-yellow-800 text-white text-center"
+                >
                   Logout
                 </button>
               </li>
@@ -131,13 +142,24 @@ const Navbar = () => {
             {user ? (
               <>
                 <li>
-                  <Link to="/my-artifacts">My Artifacts</Link>
+                  <NavLink  to="/my-artifacts" className={({ isActive }) =>
+            isActive
+              ? "text-yellow-900 font-semibold border-b-2 border-yellow-900 pb-1"
+              : "text-gray-700 hover:text-yellow-800 pb-1"
+          }>My Artifacts</NavLink>
                 </li>
                 <li>
-                  <Link to="/liked-artifacts">Liked Artifacts</Link>
+                  <NavLink to="/liked-artifacts"className={({ isActive }) =>
+            isActive
+              ? "text-yellow-900 font-semibold border-b-2 border-yellow-900 pb-1"
+              : "text-gray-700 hover:text-yellow-800 pb-1"
+          }>Liked Artifacts</NavLink>
                 </li>
                 <li>
-                  <button onClick={handleLogOut} className="btn bg-yellow-800 text-white btn-sm mt-2 text-center">
+                  <button
+                    onClick={handleLogOut}
+                    className="btn bg-yellow-800 text-white btn-sm mt-2 text-center"
+                  >
                     Logout
                   </button>
                 </li>
@@ -149,10 +171,16 @@ const Navbar = () => {
         {/* Auth Buttons (Desktop only, if not logged in) */}
         {!user && (
           <>
-            <Link to="/login" className="btn bg-yellow-800 text-white hidden sm:inline-flex items-center justify-center">
+            <Link
+              to="/login"
+              className="btn bg-yellow-800 text-white hidden sm:inline-flex items-center justify-center"
+            >
               Login
             </Link>
-            <Link to="/register" className="btn bg-yellow-800 text-white hidden sm:inline-flex items-center justify-center">
+            <Link
+              to="/register"
+              className="btn bg-yellow-800 text-white hidden sm:inline-flex items-center justify-center"
+            >
               Register
             </Link>
           </>
