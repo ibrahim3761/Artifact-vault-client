@@ -23,7 +23,7 @@ const FeaturedArtifacts = () => {
 
   if (loading) {
     return (
-      <div className="felx justify-center text-center py-10" role="status">
+      <div className="flex justify-center text-center py-10" role="status">
         <svg
           aria-hidden="true"
           class="inline w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-purple-600"

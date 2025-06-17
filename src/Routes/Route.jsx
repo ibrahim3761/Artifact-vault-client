@@ -49,7 +49,7 @@ export const router = createBrowserRouter([
             {
                 path: "artifacts-details/:id",
                 element: <PrivateRoute><ArtifactDetails></ArtifactDetails></PrivateRoute>,
-                loader: ({params})=>fetch(`https://artifact-vault-server.vercel.app/artifacts/${params.id}`)
+                //loader: ({params})=>fetch(`https://artifact-vault-server.vercel.app/artifacts/${params.id}`)
             }
         ]
     }
