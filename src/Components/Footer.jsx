@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="bg-yellow-900 text-white mt-10">
       <div className="max-w-6xl mx-auto px-4 py-10 flex flex-col md:flex-row justify-between gap-10 text-sm">
         
-        {/* Section 1: About */}
+      
         <div className="flex-1">
           <h2 className="text-xl font-bold mb-2">ArtifactVault</h2>
           <p className="opacity-80">
@@ -16,23 +16,21 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Section 2: Social Links */}
         <div className="flex-1">
           <h3 className="text-lg font-semibold mb-2">Follow Us</h3>
           <div className="flex space-x-4 text-xl">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <a href="https://www.facebook.com/Ibrahim376146ab/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               <FaFacebookF className="hover:text-yellow-400" />
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+            <a href="https://x.com/ibrahim376146" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
               <FaTwitter className="hover:text-yellow-400" />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <a href="https://www.instagram.com/mdibrahimabdullah?utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <FaInstagram className="hover:text-yellow-400" />
             </a>
           </div>
         </div>
 
-        {/* Section 3: Contact */}
         <div className="flex-1">
           <h3 className="text-lg font-semibold mb-2">Contact Us</h3>
           <p>Email: support@artifactvault.com</p>
@@ -41,7 +39,6 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Footer bottom */}
       <div className="text-center py-4 border-t border-yellow-800 text-sm">
         © {new Date().getFullYear()} ArtifactVault. All rights reserved.
       </div>
