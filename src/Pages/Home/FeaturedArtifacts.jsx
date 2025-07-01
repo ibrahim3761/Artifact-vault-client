@@ -46,7 +46,7 @@ const FeaturedArtifacts = () => {
   }
 
   return (
-    <div className="px-6 py-8">
+    <div className="px-6 md:px-6 py-8">
       <h2 className="text-3xl font-bold text-yellow-900 mb-4 text-center">
         Featured Artifacts
       </h2>

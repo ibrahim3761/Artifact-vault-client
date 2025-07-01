@@ -11,7 +11,7 @@ const Home = () => {
       <Banner></Banner>
 
       {/* === Featured Artifacts === */}
-      <section className="px-6">
+      <section className=" md:px-6">
         <div>
           <FeaturedArtifacts></FeaturedArtifacts>
         </div>
@@ -62,7 +62,7 @@ const Home = () => {
 
       {/* === Latest Discoveries Section (Icon-Based) === */}
       <section className="max-w-6xl mx-auto px-4 pb-16">
-        <h2 className="text-3xl font-bold text-yellow-900 mb-4">
+        <h2 className="text-3xl text-center font-bold text-yellow-900 mb-4">
           Latest Discoveries
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -104,6 +104,53 @@ const Home = () => {
               <p className="text-sm text-yellow-700">
                 The National Heritage Museum now showcases rare Southeast Asian
                 artifacts from the 1200s.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* === Explore Artifact Categories Section === */}
+      <section className="bg-amber-100 py-12 pb-16">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold text-yellow-900 mb-4">
+            Explore Artifact Categories
+          </h2>
+          <p className="text-yellow-800 mb-6 max-w-2xl mx-auto">
+            Discover the diverse types of artifacts preserved in our vault —
+            from tools and writings to ancient relics and rare documents.
+          </p>
+          <div className="grid md:grid-cols-4 gap-6 mt-8 text-left">
+            <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
+              <h3 className="text-lg font-semibold text-yellow-900">Tools</h3>
+              <p className="text-sm text-yellow-700">
+                From primitive hand axes to complex devices like the Antikythera
+                mechanism.
+              </p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
+              <h3 className="text-lg font-semibold text-yellow-900">Weapons</h3>
+              <p className="text-sm text-yellow-700">
+                Explore ancient swords, spears, and defense gear used by
+                historical civilizations.
+              </p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
+              <h3 className="text-lg font-semibold text-yellow-900">
+                Writings
+              </h3>
+              <p className="text-sm text-yellow-700">
+                Scrolls, manuscripts, and carvings that offer a glimpse into the
+                minds of the past.
+              </p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow hover:shadow-md transition">
+              <h3 className="text-lg font-semibold text-yellow-900">
+                Documents
+              </h3>
+              <p className="text-sm text-yellow-700">
+                Legal codes, treaties, and rare declarations that shaped
+                civilizations.
               </p>
             </div>
           </div>
