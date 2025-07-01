@@ -37,7 +37,8 @@ const Navbar = () => {
           All Artifacts
         </NavLink>
       </li>
-      <li>
+      {
+        user && <li>
         <NavLink
           to="/add-artifact"
           className={({ isActive }) =>
@@ -49,6 +50,7 @@ const Navbar = () => {
           Add Artifact
         </NavLink>
       </li>
+      }
       <li>
         <NavLink
           to="/aboutUs"
