@@ -49,11 +49,23 @@ const Navbar = () => {
           Add Artifact
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to="/aboutUs"
+          className={({ isActive }) =>
+            isActive
+              ? "text-yellow-900 font-semibold border-b-2 border-yellow-900 pb-1"
+              : "text-gray-700 hover:text-yellow-800 pb-1"
+          }
+        >
+          About Us
+        </NavLink>
+      </li>
     </>
   );
 
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-base-100 shadow-sm fixed top-0 z-50">
       {/*  Left Section: Logo + Hamburger */}
       <div className="navbar-start">
         {/* 🍔 Hamburger menu (mobile) */}
@@ -142,18 +154,28 @@ const Navbar = () => {
             {user ? (
               <>
                 <li>
-                  <NavLink  to="/my-artifacts" className={({ isActive }) =>
-            isActive
-              ? "text-yellow-900 font-semibold border-b-2 border-yellow-900 pb-1"
-              : "text-gray-700 hover:text-yellow-800 pb-1"
-          }>My Artifacts</NavLink>
+                  <NavLink
+                    to="/my-artifacts"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-yellow-900 font-semibold border-b-2 border-yellow-900 pb-1"
+                        : "text-gray-700 hover:text-yellow-800 pb-1"
+                    }
+                  >
+                    My Artifacts
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/liked-artifacts"className={({ isActive }) =>
-            isActive
-              ? "text-yellow-900 font-semibold border-b-2 border-yellow-900 pb-1"
-              : "text-gray-700 hover:text-yellow-800 pb-1"
-          }>Liked Artifacts</NavLink>
+                  <NavLink
+                    to="/liked-artifacts"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-yellow-900 font-semibold border-b-2 border-yellow-900 pb-1"
+                        : "text-gray-700 hover:text-yellow-800 pb-1"
+                    }
+                  >
+                    Liked Artifacts
+                  </NavLink>
                 </li>
                 <li>
                   <button

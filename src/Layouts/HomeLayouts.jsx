@@ -9,7 +9,7 @@ const HomeLayouts = () => {
             <header>
                 <Navbar></Navbar>
             </header>
-            <main className='flex-grow'>
+            <main className='flex-grow bg-amber-50'>
                 <Outlet></Outlet>
             </main>
             <footer>

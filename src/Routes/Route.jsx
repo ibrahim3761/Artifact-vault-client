@@ -10,6 +10,7 @@ import LikedArtifacts from "../Pages/LikedArtifacts";
 import ArtifactDetails from "../Pages/ArtifactDetails";
 import PrivateRoute from "../Provider/PrivateRoute";
 import Error from "../Pages/Error";
+import AboutUs from "../Pages/AboutUs";
 
 export const router = createBrowserRouter([
     {
@@ -50,6 +51,10 @@ export const router = createBrowserRouter([
                 path: "artifacts-details/:id",
                 element: <PrivateRoute><ArtifactDetails></ArtifactDetails></PrivateRoute>,
                 //loader: ({params})=>fetch(`https://artifact-vault-server.vercel.app/artifacts/${params.id}`)
+            },
+            {
+                path:"aboutUs",
+                Component: AboutUs
             }
         ]
     }

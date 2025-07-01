@@ -43,7 +43,7 @@ const AddArtifact = () => {
 };
 
   return (
-    <div className="md:px-10 md:py-14 px-5 py-5 bg-amber-50 min-h-screen">
+    <div className="md:px-10 md:py-24 px-5 py-5 md:mt-14 mt-16">
       <title>ArtifactVault - Add Artifact</title>
       <div className="bg-white p-10 rounded-xl shadow-lg text-gray-800 max-w-4xl mx-auto">
         <h2 className="text-3xl font-bold text-center text-amber-800 mb-4">

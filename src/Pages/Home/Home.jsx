@@ -5,7 +5,7 @@ import FeaturedArtifacts from "./FeaturedArtifacts";
 
 const Home = () => {
   return (
-    <div className="space-y-16">
+    <div className="space-y-16 pt-24 bg-amber-50">
       <title>ArtifactVault - Home</title>
       {/* === Banner === */}
       <Banner></Banner>

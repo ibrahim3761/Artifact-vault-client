@@ -32,7 +32,7 @@ const AllArtifacts = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center text-center py-10" role="status">
+      <div className="flex justify-center  text-center py-24" role="status">
         <svg
           aria-hidden="true"
           class="inline w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-purple-600"
@@ -55,7 +55,7 @@ const AllArtifacts = () => {
   }
 
   return (
-    <div className="px-6 py-10">
+    <div className="px-6 py-10 pt-24">
       <title>ArtifactVault - All Artifacts</title>
       {/* Search input */}
       <div className="mb-6 text-center">
