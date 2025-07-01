@@ -126,7 +126,7 @@ const MyArtifacts = () => {
 
   return (
     <div className="pt-24 pb-14">
-      <h2 className="text-3xl font-bold mb-2 text-center">My Artifacts</h2>
+      <h2 className="text-3xl font-bold mb-2 text-center text-amber-800">My Artifacts</h2>
       <div className="p-6 overflow-x-auto">
         <title>ArtifactVault - My Artifacts</title>
         <table className="min-w-full border border-amber-300 text-left bg-white rounded-lg overflow-hidden">

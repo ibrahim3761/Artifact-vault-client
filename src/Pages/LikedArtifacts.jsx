@@ -73,7 +73,7 @@ const LikedArtifacts = () => {
 
   return (
     <div className="pt-24">
-      <h2 className="text-3xl font-bold mb-2 text-center">
+      <h2 className="text-3xl font-bold mb-2 text-center text-amber-800">
         Your Liked Artifacts
       </h2>
       <div className="p-6 overflow-x-auto ">
