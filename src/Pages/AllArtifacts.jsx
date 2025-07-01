@@ -1,41 +1,40 @@
-import React, { useState, useEffect, use } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
 
 const AllArtifacts = () => {
-  const { loading } = use(AuthContext);
+  const { loading } = useContext(AuthContext);
   const [artifacts, setArtifacts] = useState([]);
   const [search, setSearch] = useState("");
+  const [sort, setSort] = useState("");
+
   useEffect(() => {
-   
-      fetchArtifacts();
-    
-  }, [search]);
+    fetchArtifacts();
+  }, [search, sort]);
 
   const fetchArtifacts = () => {
-  axios
-    .get("https://artifact-vault-server.vercel.app/artifacts", {
-      params: {
-        search: search.trim() || undefined,
-      },
-    })
-    .then((res) => {
-      setArtifacts(res.data);
-    })
-    .catch((error) => {
-      console.error("Failed to fetch artifacts:", error);
-
-    });
-};
-
+    axios
+      .get("https://artifact-vault-server.vercel.app/artifacts", {
+        params: {
+          search: search.trim() || undefined,
+          sort: sort || undefined,
+        },
+      })
+      .then((res) => {
+        setArtifacts(res.data);
+      })
+      .catch((error) => {
+        console.error("Failed to fetch artifacts:", error);
+      });
+  };
 
   if (loading) {
     return (
-      <div className="flex justify-center  text-center py-24" role="status">
+      <div className="flex justify-center text-center py-24" role="status">
         <svg
           aria-hidden="true"
-          class="inline w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-purple-600"
+          className="inline w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-purple-600"
           viewBox="0 0 100 101"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +48,7 @@ const AllArtifacts = () => {
             fill="currentFill"
           />
         </svg>
-        <span class="sr-only">Loading...</span>
+        <span className="sr-only">Loading...</span>
       </div>
     );
   }
@@ -57,18 +56,30 @@ const AllArtifacts = () => {
   return (
     <div className="px-6 py-10 pt-24">
       <title>ArtifactVault - All Artifacts</title>
-      {/* Search input */}
-      <div className="mb-6 text-center">
+
+      {/* Search & Sort Controls */}
+      <div className="mb-6 flex flex-col sm:flex-row justify-center items-center gap-4">
         <input
           type="text"
           placeholder="Search artifacts by name..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full max-w-md p-3 border border-amber-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+          className="w-full sm:w-80 p-3 border border-amber-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
         />
+        <select
+          value={sort}
+          onChange={(e) => setSort(e.target.value)}
+          className="p-3 px-7 border border-amber-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+        >
+          <option value="">Sort by</option>
+          <option value="name-asc">Name A-Z</option>
+          <option value="name-desc">Name Z-A</option>
+          <option value="newest">Newest</option>
+          <option value="oldest">Oldest</option>
+        </select>
       </div>
 
-      {/* Artifacts grid */}
+      {/* Artifacts Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {artifacts.map((artifact) => (
           <div
@@ -103,6 +114,7 @@ const AllArtifacts = () => {
         ))}
       </div>
 
+      {/* No Artifacts Found */}
       {artifacts.length === 0 && (
         <div className="text-center text-gray-500 mt-10">
           No artifacts found.
