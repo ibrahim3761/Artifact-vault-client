@@ -92,13 +92,6 @@ const AboutUs = () => {
             </div>
           </div>
         </section>
-
-        {/* Footer */}
-        <div className="text-center pt-8 border-t border-yellow-200">
-          <p className="text-gray-500">
-            © {new Date().getFullYear()} Artifact Vault. Preserving history for the future.
-          </p>
-        </div>
       </div>
     </div>
   );
