@@ -67,7 +67,7 @@ const AboutUs = () => {
               </div>
               <h3 className="text-xl font-bold text-yellow-800 text-center mb-3">Preservation</h3>
               <p className="text-gray-600 text-center">
-                Safeguarding cultural heritage through advanced digital preservation techniques
+                Safeguarding cultural heritage through advanced digital preservation techniques.
               </p>
             </div>
 
@@ -77,7 +77,7 @@ const AboutUs = () => {
               </div>
               <h3 className="text-xl font-bold text-yellow-800 text-center mb-3">Community</h3>
               <p className="text-gray-600 text-center">
-                Building bridges between cultures and generations through shared heritage
+                Building bridges between cultures and generations through shared heritage.
               </p>
             </div>
 
