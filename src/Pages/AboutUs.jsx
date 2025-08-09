@@ -57,7 +57,7 @@ const AboutUs = () => {
         <section className="mb-16">
           <div className="text-center mb-10">
             <h2 className="text-4xl font-bold text-yellow-800 mb-4">Our Core Values</h2>
-            <p className="text-gray-600 text-lg">The principles that guide everything we do</p>
+            <p className="text-gray-600 text-lg">The principles that guide everything we do.</p>
           </div>
 
           <div className="grid gap-8 md:grid-cols-3">
