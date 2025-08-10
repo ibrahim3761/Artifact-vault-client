@@ -9,7 +9,7 @@ Artifact Vault is a full-stack, mobile-responsive web application that enables u
 ## 🌟 Features
 
 ### 🔐 Secure User Authentication
-Seamlessly authenticate with **Firebase Auth** using email/password or Google sign-in.
+Seamlessly authenticate with Firebase Auth using email/password or Google sign-in.
 
 ### 🖼️ Artifact Management (CRUD)
 Authenticated users can:
