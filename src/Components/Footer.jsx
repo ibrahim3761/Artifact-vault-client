@@ -35,7 +35,7 @@ const Footer = () => {
           <h3 className="text-lg font-semibold mb-2">Contact Us</h3>
           <p>Email: support@artifactvault.com</p>
           <p>Phone: +8801887383971</p>
-          <p>Location: Dhaka, Bangladesh</p>
+          <p>Location: Chittagong, Bangladesh</p>
         </div>
       </div>
 
