@@ -59,7 +59,7 @@ Smooth transitions and UI animations powered by **Framer Motion**.
 
 ### 🔒 Authentication & Hosting
 - **Firebase Authentication**
-- **Firebase Hosting** (for frontend)
+- **Firebase Hosting** (frontend)
 
 ---
 
