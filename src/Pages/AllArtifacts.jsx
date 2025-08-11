@@ -4,16 +4,18 @@ import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
 
 const AllArtifacts = () => {
-  const { loading } = useContext(AuthContext);
+  const { loading } = useContext(AuthContext); // auth loading
   const [artifacts, setArtifacts] = useState([]);
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
+  const [isFetching, setIsFetching] = useState(false); // artifacts loading
 
   useEffect(() => {
     fetchArtifacts();
   }, [search, sort]);
 
   const fetchArtifacts = () => {
+    setIsFetching(true); // start loading
     axios
       .get("https://artifact-vault-server.vercel.app/artifacts", {
         params: {
@@ -26,10 +28,13 @@ const AllArtifacts = () => {
       })
       .catch((error) => {
         console.error("Failed to fetch artifacts:", error);
+      })
+      .finally(() => {
+        setIsFetching(false); // stop loading
       });
   };
 
-  if (loading) {
+  if (loading || isFetching) {
     return (
       <div className="flex justify-center text-center py-24" role="status">
         <svg
@@ -115,7 +120,7 @@ const AllArtifacts = () => {
       </div>
 
       {/* No Artifacts Found */}
-      {artifacts.length === 0 && (
+      {!isFetching && artifacts.length === 0 && (
         <div className="text-center text-gray-500 mt-10">
           No artifacts found.
         </div>
